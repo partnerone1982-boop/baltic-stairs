@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     const result = await response.json();
     if (result?.ok !== true) throw new Error("Delivery not confirmed");
     return Response.json({ ok: true });
-  } catch {
+  } catch (err) { console.error("Telegram delivery error:", err);
     return error("Не удалось подтвердить отправку. Попробуйте позже или свяжитесь с нами по телефону.", 502);
   }
 }
