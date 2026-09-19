@@ -8,7 +8,8 @@ const error = (message: string, status: number) => Response.json({ error: messag
 
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
-  if (!origin || origin !== new URL(request.url).origin) return error("Недопустимый источник запроса.", 403);
+  const allowedOrigins = ["https://mylestnica.ru", "https://www.mylestnica.ru"];
+  if (!origin || !allowedOrigins.includes(origin)) return error("Недопустимый источник запроса.", 403);
   if (!request.headers.get("content-type")?.includes("application/json")) return error("Неверный формат заявки.", 415);
   let data: Record<string, unknown>;
   try {
@@ -53,10 +54,9 @@ export async function POST(request: Request) {
       }),
     });
     if (!response.ok) {
-  const telegramError = await response.text();
-  console.error("Telegram sendMessage failed:", response.status, telegramError);
-  throw new Error("Delivery failed");
-}
+      console.error("Telegram sendMessage failed:", response.status);
+      throw new Error("Delivery failed");
+    }
     const result = await response.json();
     if (result?.ok !== true) throw new Error("Delivery not confirmed");
     return Response.json({ ok: true });
