@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   if (typeof name !== "string" || !name.trim() || name.length > 80 || typeof phone !== "string" || phone.length > 30 || !/^[+\d\s()\-]+$/.test(phone) || !/^\d{10,15}$/.test(phone.replace(/\D/g, "")) || typeof frameType !== "string" || !Object.hasOwn(frameLabels, frameType) || typeof configuration !== "string" || !Object.hasOwn(configurationLabels, configuration) || typeof comment !== "string" || comment.length > 2000) {
     return error("Проверьте имя, телефон, тип каркаса, конфигурацию и длину комментария.", 400);
   }
-  cconst mailUser = process.env.YANDEX_MAIL_USER;
+  const mailUser = process.env.YANDEX_MAIL_USER;
 const mailPassword = process.env.YANDEX_MAIL_PASSWORD;
 
   if (!mailUser || !mailPassword) return error("Отправка временно недоступна. Позвоните или напишите нам в мессенджере ниже.", 503);
@@ -42,7 +42,7 @@ const mailPassword = process.env.YANDEX_MAIL_PASSWORD;
   if (now - windowStart > 60000) { windowStart = now; attempts = 0; }
   if (attempts >= 5) return error("Слишком много заявок. Попробуйте через минуту.", 429);
   attempts++;
-  ttry {
+  try {
   const transporter = nodemailer.createTransport({
     host: "smtp.yandex.ru",
     port: 465,
