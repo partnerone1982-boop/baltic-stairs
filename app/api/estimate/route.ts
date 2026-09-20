@@ -45,8 +45,8 @@ const mailPassword = process.env.YANDEX_MAIL_PASSWORD;
   try {
   const transporter = nodemailer.createTransport({
     host: "smtp.yandex.ru",
-    port: 465,
-    secure: true,
+    port: 587,
+secure: false,
     auth: {
       user: mailUser,
       pass: mailPassword,
