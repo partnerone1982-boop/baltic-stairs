@@ -15,7 +15,8 @@ export default function SiteHeader() {
  return (
 <header onKeyDown={(event) => { if (event.key === "Escape" && open) { setOpen(false); toggleRef.current?.focus(); } }} className="border-b border-black/10 bg-[#f4f0e7] text-[#1f1f1f]">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-4 sm:gap-6 sm:py-6">
-            <Link href="/" className="min-w-0 flex-1 rounded-sm sm:flex-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black">
+            <div className="min-w-0 flex-1 sm:flex-none">
+            <Link href="/" className="block min-w-0 rounded-sm sm:flex-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black">
               <span className="block text-base font-bold tracking-wide sm:text-xl">
                 ЗАВОД БАЛТИЙСКИХ ЛЕСТНИЦ
               </span>
@@ -23,6 +24,10 @@ export default function SiteHeader() {
                 Санкт-Петербург и Ленинградская область
               </span>
             </Link>
+            <a href="tel:+78129206840" className="mt-1 block w-fit whitespace-nowrap rounded-sm text-sm leading-5 text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black sm:hidden">
+              +7 (812) 920-68-40
+            </a>
+            </div>
             <Link href="/#contact" className="hidden rounded-xl bg-[#1f1f1f] px-6 py-4 text-center font-bold text-white transition sm:inline-block hover:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black">
               Рассчитать стоимость
             </Link>

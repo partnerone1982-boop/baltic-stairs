@@ -1,8 +1,7 @@
 import { pageMetadata } from "./lib/seo";
 export const metadata = pageMetadata("/");
 import FinishingIntro from "./components/FinishingIntro";
-import Configurations from "./components/Configurations";
-import FrameCards from "./components/FrameCards";
+import StairCatalog from "./components/StairCatalog";
 import SocialLinks from "./components/SocialLinks";
 import WorkSteps from "./components/WorkSteps";
 import Link from "next/link";
@@ -25,37 +24,37 @@ export default function Home() {
           className="-z-20 object-cover object-[center_55%] brightness-110 contrast-115"
           unoptimized
         />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,9,11,0.55)_0%,rgba(9,9,11,0.3)_45%,rgba(9,9,11,0.05)_75%,rgba(9,9,11,0)_100%)]" />
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)]">
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-zinc-200">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,9,11,0.8)_0%,rgba(9,9,11,0.7)_45%,rgba(9,9,11,0.55)_75%,rgba(9,9,11,0.5)_100%)]" />
+        <div className="mx-auto max-w-7xl px-6 pt-6 pb-10 max-[360px]:pt-2 sm:py-16 md:py-24">
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-zinc-100">
           Собственное производство
         </p>
+        <p className="mt-3 text-sm leading-6 text-zinc-100">Санкт-Петербург и Ленинградская область</p>
 
-        <h1 id="hero-title" className="mt-8 max-w-5xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
+        <h1 id="hero-title" className="mt-5 max-[360px]:mt-3 max-w-5xl text-3xl font-bold leading-tight sm:text-5xl md:text-7xl">
           Металлические лестницы под заказ
         </h1>
 
-        <p className="mt-8 max-w-3xl text-xl leading-8 text-zinc-100">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-100 sm:text-xl sm:leading-8">
           Проектируем, изготавливаем и устанавливаем внутренние и наружные
           лестницы для частных домов, коммерческих объектов и производственных
           помещений.
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-4 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+          <a
+            href="#contact"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-6 py-3 text-center font-bold text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            Получить расчёт
+          </a>
           <a
             href="#catalog"
-            className="rounded-xl bg-white px-7 py-4 font-bold text-black"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/70 bg-black/30 px-6 py-3 text-center font-bold transition hover:bg-black/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Смотреть типы каркасов
           </a>
-
-          <a
-            href="#contact"
-            className="rounded-xl border border-white/50 bg-black/30 px-7 py-4 font-bold transition hover:bg-black/50"
-          >
-            Получить расчет
-          </a>
-          <Link href="/callback" className="rounded-xl border border-white/50 bg-black/30 px-7 py-4 font-bold transition hover:bg-black/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+          <Link href="/callback" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/70 bg-black/30 px-6 py-3 text-center font-bold transition hover:bg-black/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             Заказать звонок
           </Link>
         </div>
@@ -71,10 +70,9 @@ export default function Home() {
             Что мы производим
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Типы металлических каркасов</h2>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Каталог металлических каркасов</h2>
 
-          <FrameCards />
-          <Configurations photoCards />
+          <StairCatalog />
         </div>
       </section>
 
@@ -117,18 +115,18 @@ export default function Home() {
       <FinishingIntro />
       <WorkSteps />
 
-      <section id="contact" className="border-t border-black/10">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="rounded-3xl bg-white p-8 text-black md:p-12">
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-zinc-600">
+      <section id="contact" aria-labelledby="contact-title" className="border-t border-black/10">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-20">
+          <div className="rounded-3xl bg-white p-5 text-black sm:p-8 md:p-12">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-zinc-600">
               Бесплатный предварительный расчет
             </p>
 
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold md:text-5xl">
+            <h2 id="contact-title" className="mt-4 max-w-3xl text-3xl font-bold sm:text-4xl md:text-5xl">
               Нужна лестница?
             </h2>
 
-            <p className="mt-5 max-w-2xl text-lg text-zinc-600">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 sm:text-lg">
               Расскажите, какая лестница вам нужна. Рассчитаем ориентировочную
               стоимость и предложим подходящую конструкцию.
             </p>
